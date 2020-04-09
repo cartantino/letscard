@@ -1,0 +1,38 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+
+<validators>
+    <field name="place.CAP">
+        <field-validator type="requiredstring">
+            <message>You must enter a CAP</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="maxLength">5</param>
+            <param name="minLength">5</param>
+            <message>CAP must be %{minLength} chars long</message>
+        </field-validator>
+        <field-validator type="fieldexpression">
+            <param name="expression">
+                <![CDATA[
+                    @com.letscard.jpa.service.ServiceFactory@getInstance().getPlaceService().readByNaturalId(place.CAP) == null
+                ]]>
+            </param>
+            <message>Place with %{place.CAP} CAP already exists</message>
+        </field-validator>
+    </field>
+    <field name="place.city">
+        <field-validator type="requiredstring">
+            <message>You must enter a city</message>
+        </field-validator>
+    </field>
+    <field name="place.region">
+        <field-validator type="requiredstring">
+            <message>You must enter a region</message>
+        </field-validator>
+    </field>
+    <field name="place.province">
+        <field-validator type="requiredstring">
+            <message>You must enter a province</message>
+        </field-validator>
+    </field>
+</validators>

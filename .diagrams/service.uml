@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="220.46874999999997" y="438.0">com.letscard.jpa.service.PlaceService</node>
+    <node x="18.75" y="0.0">com.letscard.jpa.dao.EntityManagerSingleton</node>
+    <node x="185.0" y="149.0">com.letscard.jpa.dao.AbstractDAO</node>
+    <node x="576.0" y="316.5">com.letscard.jpa.dao.UserDAO</node>
+    <node x="478.15625" y="438.0">com.letscard.jpa.service.UserService</node>
+    <node x="223.06622023809527" y="558.0">com.letscard.jpa.service.ServiceFactory</node>
+    <node x="465.0" y="172.0">com.letscard.jpa.service.Service</node>
+    <node x="22.0" y="438.0">com.letscard.jpa.service.CardService</node>
+    <node x="394.75" y="34.5">com.letscard.jpa.dao.DAO</node>
+    <node x="656.875" y="438.0">com.letscard.jpa.service.BusinessActivityService</node>
+    <node x="717.375" y="316.5">com.letscard.jpa.dao.BusinessActivityDAO</node>
+    <node x="259.0" y="305.0">com.letscard.jpa.service.AbstractService</node>
+    <node x="0.0" y="316.5">com.letscard.jpa.dao.CardDAO</node>
+    <node x="127.0" y="316.5">com.letscard.jpa.dao.PlaceDAO</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.letscard.jpa.dao.BusinessActivityDAO" target="com.letscard.jpa.dao.AbstractDAO">
+      <point x="-46.25" y="-15.0" />
+      <point x="763.625" y="255.0" />
+      <point x="406.0" y="255.0" />
+      <point x="91.0" y="38.0" />
+    </edge>
+    <edge source="com.letscard.jpa.service.UserService" target="com.letscard.jpa.service.AbstractService">
+      <point x="-47.25" y="-15.0" />
+      <point x="493.90625" y="418.0" />
+      <point x="426.0625" y="418.0" />
+      <point x="18.5625" y="26.5" />
+    </edge>
+    <edge source="com.letscard.jpa.dao.CardDAO" target="com.letscard.jpa.dao.AbstractDAO">
+      <point x="26.75" y="-15.0" />
+      <point x="80.25" y="265.0" />
+      <point x="224.0" y="265.0" />
+      <point x="-91.0" y="38.0" />
+    </edge>
+    <edge source="com.letscard.jpa.service.AbstractService" target="com.letscard.jpa.dao.AbstractDAO">
+      <point x="0.0" y="-26.5" />
+      <point x="407.5" y="285.0" />
+      <point x="328.0" y="285.0" />
+      <point x="13.0" y="38.0" />
+    </edge>
+    <edge source="com.letscard.jpa.service.CardService" target="com.letscard.jpa.dao.CardDAO">
+      <point x="-47.25" y="-15.0" />
+      <point x="37.75" y="418.0" />
+      <point x="26.75" y="418.0" />
+      <point x="-26.75" y="15.0" />
+    </edge>
+    <edge source="com.letscard.jpa.service.BusinessActivityService" target="com.letscard.jpa.dao.BusinessActivityDAO">
+      <point x="25.5" y="-15.0" />
+      <point x="784.375" y="418.0" />
+      <point x="763.625" y="418.0" />
+      <point x="-46.25" y="15.0" />
+    </edge>
+    <edge source="com.letscard.jpa.service.AbstractService" target="com.letscard.jpa.service.Service">
+      <point x="99.0" y="-26.5" />
+      <point x="506.5" y="285.0" />
+      <point x="513.0" y="285.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.letscard.jpa.service.ServiceFactory" target="com.letscard.jpa.service.CardService">
+      <point x="-111.70833333333343" y="-72.5" />
+      <point x="302.8578869047618" y="518.0" />
+      <point x="127.0" y="518.0" />
+      <point x="42.0" y="15.0" />
+    </edge>
+    <edge source="com.letscard.jpa.dao.UserDAO" target="com.letscard.jpa.dao.AbstractDAO">
+      <point x="26.75" y="-15.0" />
+      <point x="656.25" y="265.0" />
+      <point x="380.0" y="265.0" />
+      <point x="65.0" y="38.0" />
+    </edge>
+    <edge source="com.letscard.jpa.service.ServiceFactory" target="com.letscard.jpa.service.PlaceService">
+      <point x="-79.79166666666674" y="-72.5" />
+      <point x="334.77455357142856" y="508.0" />
+      <point x="242.30208333333331" y="508.0" />
+      <point x="-43.66666666666666" y="15.0" />
+    </edge>
+    <edge source="com.letscard.jpa.service.BusinessActivityService" target="com.letscard.jpa.service.AbstractService">
+      <point x="-25.5" y="-15.0" />
+      <point x="733.375" y="388.0" />
+      <point x="537.4375" y="388.0" />
+      <point x="129.9375" y="26.5" />
+    </edge>
+    <edge source="com.letscard.jpa.dao.AbstractDAO" target="com.letscard.jpa.dao.EntityManagerSingleton">
+      <point x="-65.0" y="-38.0" />
+      <point x="250.0" y="124.0" />
+      <point x="196.75" y="124.0" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="com.letscard.jpa.service.ServiceFactory" target="com.letscard.jpa.service.UserService">
+      <point x="15.958333333333314" y="-72.5" />
+      <point x="430.52455357142856" y="488.0" />
+      <point x="499.15625" y="488.0" />
+      <point x="-42.0" y="15.0" />
+    </edge>
+    <edge source="com.letscard.jpa.service.ServiceFactory" target="com.letscard.jpa.service.BusinessActivityService">
+      <point x="111.70833333333337" y="-72.5" />
+      <point x="526.2745535714287" y="518.0" />
+      <point x="690.875" y="518.0" />
+      <point x="-68.0" y="15.0" />
+    </edge>
+    <edge source="com.letscard.jpa.service.PlaceService" target="com.letscard.jpa.service.AbstractService">
+      <point x="0.0" y="-15.0" />
+      <point x="285.96875" y="408.0" />
+      <point x="351.8125" y="408.0" />
+      <point x="-55.6875" y="26.5" />
+    </edge>
+    <edge source="com.letscard.jpa.service.UserService" target="com.letscard.jpa.dao.UserDAO">
+      <point x="15.75" y="-15.0" />
+      <point x="556.90625" y="408.0" />
+      <point x="602.75" y="408.0" />
+      <point x="-26.75" y="15.0" />
+    </edge>
+    <edge source="com.letscard.jpa.dao.PlaceDAO" target="com.letscard.jpa.dao.AbstractDAO">
+      <point x="-28.0" y="-15.0" />
+      <point x="155.0" y="275.0" />
+      <point x="250.0" y="275.0" />
+      <point x="-65.0" y="38.0" />
+    </edge>
+    <edge source="com.letscard.jpa.service.CardService" target="com.letscard.jpa.service.AbstractService">
+      <point x="15.75" y="-15.0" />
+      <point x="100.75" y="388.0" />
+      <point x="277.5625" y="388.0" />
+      <point x="-129.9375" y="26.5" />
+    </edge>
+    <edge source="com.letscard.jpa.service.PlaceService" target="com.letscard.jpa.dao.PlaceDAO">
+      <point x="-43.66666666666666" y="-15.0" />
+      <point x="242.30208333333331" y="378.0" />
+      <point x="183.0" y="378.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="com.letscard.jpa.dao.AbstractDAO" target="com.letscard.jpa.dao.DAO">
+      <point x="65.0" y="-38.0" />
+      <point x="380.0" y="124.0" />
+      <point x="433.25" y="124.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="443.0" y="220.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

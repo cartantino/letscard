@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <constant name="struts.devMode" value="true"/>
+    <constant name="struts.ui.theme" value="simple"/>
+    <constant name="struts.ognl.allowStaticMethodAccess" value="true"/>
+    <constant name="struts.convention.result.path" value="/WEB-INF/"/>
+
+    <package name="welcome" extends="struts-default">
+        <action name="index">
+            <result>/WEB-INF/index.jsp</result>
+        </action>
+    </package>
+
+    <!--<package name="home" namespace="/home" extends="struts-default">
+        <action name="goIndex" class="com.letscard.struts2.action.RedirectAction" method="JSPRedirect">
+            <result name="success">/WEB-INF/index.jsp</result>
+        </action>
+    </package>-->
+
+    <package name="user" namespace="/user" extends="struts-default">
+        <action name="userPage" class="com.letscard.struts2.action.RedirectAction" method="JSPRedirect">
+            <result name="success">/WEB-INF/jsp/user/User.jsp</result>
+        </action>
+        <action name="createUserPage" class="com.letscard.struts2.action.user.UserAction"
+                method="createUserPage">
+            <result name="success">/WEB-INF/jsp/user/CreateUser.jsp</result>
+        </action>
+        <action name="createUser" class="com.letscard.struts2.action.user.UserAction" method="createUser">
+            <result name="success" type="chain">showUsers</result>
+            <result name="input">/WEB-INF/jsp/user/CreateUser.jsp</result>
+        </action>
+        <action name="createUpdateUserPage" class="com.letscard.struts2.action.user.UpdateUserAction"
+                method="createUpdateUserPage">
+            <result name="success">/WEB-INF/jsp/user/CreateUser.jsp</result>
+        </action>
+        <action name="updateUser" class="com.letscard.struts2.action.user.UpdateUserAction"
+                method="updateUser">
+            <result name="success" type="chain">showUsers</result>
+            <result name="input">/WEB-INF/jsp/user/CreateUser.jsp</result>
+        </action>
+        <action name="createAddStandardCardPage" class="com.letscard.struts2.action.user.AddCardAction"
+                method="createAddStandardCardPage">
+            <result name="success">/WEB-INF/jsp/user/AddSTCard.jsp</result>
+        </action>
+        <action name="createAddSharableCardPage" class="com.letscard.struts2.action.user.AddCardAction"
+                method="createAddSharableCardPage">
+            <result name="success">/WEB-INF/jsp/user/AddSHCard.jsp</result>
+        </action>
+        <action name="addSTCard" class="com.letscard.struts2.action.user.AddCardAction" method="addStandardCard">
+            <result name="success" type="chain">
+                <param name="userId">${user.id}</param>
+                <param name="namespace">/user</param>
+                <param name="actionName">showUserCards</param>
+            </result>
+        </action>
+        <action name="addSHCard" class="com.letscard.struts2.action.user.AddCardAction" method="addSharableCard">
+            <result name="success" type="chain">
+                <param name="userId">${user.id}</param>
+                <param name="namespace">/user</param>
+                <param name="actionName">showUserCards</param>
+            </result>
+        </action>
+        <action name="removeSharableCard" class="com.letscard.struts2.action.user.UserAction"
+                method="removeSharableCard">
+            <result name="success" type="chain">
+                <param name="userId">${user.id}</param>
+                <param name="namespace">/user</param>
+                <param name="actionName">showUserCards</param>
+            </result>
+        </action>
+        <action name="removeStandardCard" class="com.letscard.struts2.action.user.UserAction"
+                method="removeStandardCard">
+            <result name="success" type="chain">
+                <param name="userId">${user.id}</param>
+                <param name="namespace">/user</param>
+                <param name="actionName">showUserCards</param>
+            </result>
+        </action>
+        <action name="removeAllUserStandardCards" class="com.letscard.struts2.action.user.UserAction"
+                method="removeAllUserStandardCards">
+            <result name="success" type="chain">
+                <param name="userId">${user.id}</param>
+                <param name="namespace">/user</param>
+                <param name="actionName">showUserCards</param>
+            </result>
+        </action>
+        <action name="removeAllUserSharableCards" class="com.letscard.struts2.action.user.UserAction"
+                method="removeAllUserSharableCards">
+            <result name="success" type="chain">
+                <param name="userId">${user.id}</param>
+                <param name="namespace">/user</param>
+                <param name="actionName">showUserCards</param>
+            </result>
+        </action>
+        <action name="removeAllUserCards" class="com.letscard.struts2.action.user.UserAction"
+                method="removeAllUserCards">
+            <result name="success" type="chain">
+                <param name="userId">${user.id}</param>
+                <param name="namespace">/user</param>
+                <param name="actionName">showUserCards</param>
+            </result>
+        </action>
+        <action name="removeUser" class="com.letscard.struts2.action.user.UserAction" method="removeUser">
+            <result name="success" type="chain">showUsers</result>
+        </action>
+        <action name="removeAllUsers" class="com.letscard.struts2.action.user.UserAction" method="removeAllUsers">
+            <result name="success" type="chain">showUsers</result>
+        </action>
+        <action name="showUsers" class="com.letscard.struts2.action.user.UserAction" method="showUsers">
+            <result name="success">/WEB-INF/jsp/user/ShowUsers.jsp</result>
+        </action>
+        <action name="showUserCards" class="com.letscard.struts2.action.user.UserAction" method="showUserCards">
+            <result name="success">/WEB-INF/jsp/user/ShowUserCards.jsp</result>
+        </action>
+    </package>
+
+    <package name="activity" namespace="/activity" extends="struts-default">
+        <action name="activityPage" class="com.letscard.struts2.action.RedirectAction" method="JSPRedirect">
+            <result name="success">/WEB-INF/jsp/activity/Activity.jsp</result>
+        </action>
+        <action name="createActivityPage" class="com.letscard.struts2.action.activity.ActivityAction"
+                method="createActivityPage">
+            <result name="success">/WEB-INF/jsp/activity/CreateActivity.jsp</result>
+        </action>
+        <action name="createUpdateActivityPage" class="com.letscard.struts2.action.activity.UpdateActivityAction"
+                method="createUpdateActivityPage">
+            <result name="success">/WEB-INF/jsp/activity/CreateActivity.jsp</result>
+        </action>
+        <action name="updateActivity" class="com.letscard.struts2.action.activity.UpdateActivityAction"
+                method="updateActivity">
+            <result name="success" type="chain">showActivities</result>
+            <result name="input">/WEB-INF/jsp/activity/CreateActivity.jsp</result>
+        </action>
+        <action name="createActivity" class="com.letscard.struts2.action.activity.ActivityAction"
+                method="createActivity">
+            <result name="success" type="chain">showActivities</result>
+            <result name="input">/WEB-INF/jsp/activity/CreateActivity.jsp</result>
+        </action>
+        <action name="removeActivity" class="com.letscard.struts2.action.activity.ActivityAction"
+                method="removeActivity">
+            <result name="success" type="chain">showActivities</result>
+        </action>
+        <action name="removeAllActivities" class="com.letscard.struts2.action.activity.ActivityAction"
+                method="removeAllActivities">
+            <result name="success" type="chain">showActivities</result>
+        </action>
+        <action name="removeActivityCard" class="com.letscard.struts2.action.activity.ActivityAction"
+                method="removeActivityCard">
+            <result name="success" type="chain">
+                <param name="activityId">${activity.id}</param>
+                <param name="namespace">/activity</param>
+                <param name="actionName">showActivityCards</param>
+            </result>
+        </action>
+        <action name="removeAllActivityCards" class="com.letscard.struts2.action.activity.ActivityAction"
+                method="removeAllActivityCards">
+            <result name="success" type="chain">
+                <param name="activityId">${activity.id}</param>
+                <param name="namespace">/activity</param>
+                <param name="actionName">showActivityCards</param>
+            </result>
+        </action>
+        <action name="showActivities" class="com.letscard.struts2.action.activity.ActivityAction"
+                method="showActivities">
+            <result name="success">/WEB-INF/jsp/activity/ShowActivities.jsp</result>
+        </action>
+        <action name="showActivityCards" class="com.letscard.struts2.action.activity.ActivityAction"
+                method="showActivityCards">
+            <result name="success">/WEB-INF/jsp/activity/ShowActivityCards.jsp</result>
+        </action>
+    </package>
+
+    <package name="card" namespace="/card" extends="struts-default">
+        <action name="cardPage" class="com.letscard.struts2.action.RedirectAction" method="JSPRedirect">
+            <result name="success">/WEB-INF/jsp/card/Card.jsp</result>
+        </action>
+        <action name="createCardPage" class="com.letscard.struts2.action.card.CardAction"
+                method="createCardPage">
+            <result name="success">/WEB-INF/jsp/card/CreateCard.jsp</result>
+        </action>
+        <action name="createCard" class="com.letscard.struts2.action.card.CardAction" method="createCard">
+            <result name="success" type="redirectAction">
+                <param name="activityId">${activityId}</param>
+                <param name="namespace">/activity</param>
+                <param name="actionName">showActivityCards</param>
+            </result>
+            <result name="input">/WEB-INF/jsp/card/CreateCard.jsp</result>
+        </action>
+        <action name="removeCard" class="com.letscard.struts2.action.card.CardAction" method="removeCard">
+            <result name="success" type="redirectAction">
+                <param name="activityId">${activityId}</param>
+                <param name="namespace">/activity</param>
+                <param name="actionName">showActivityCards</param>
+            </result>
+        </action>
+        <action name="removeAllCards" class="com.letscard.struts2.action.card.CardAction" method="removeAllCards">
+            <result name="success" type="chain">showCards</result>
+        </action>
+        <action name="showCards" class="com.letscard.struts2.action.card.CardAction" method="showCards">
+            <result name="success">/WEB-INF/jsp/card/ShowCards.jsp</result>
+        </action>
+    </package>
+
+    <package name="place" namespace="/place" extends="struts-default">
+        <action name="placePage" class="com.letscard.struts2.action.RedirectAction" method="JSPRedirect">
+            <result name="success">/WEB-INF/jsp/place/Place.jsp</result>
+        </action>
+        <action name="createPlacePage" class="com.letscard.struts2.action.place.PlaceAction"
+                method="createPlacePage">
+            <result name="success">/WEB-INF/jsp/place/CreatePlace.jsp</result>
+        </action>
+        <action name="createPlace" class="com.letscard.struts2.action.place.PlaceAction" method="createPlace">
+            <result name="success" type="redirectAction">showPlaces</result>
+            <result name="input">/WEB-INF/jsp/place/CreatePlace.jsp</result>
+        </action>
+        <action name="showPlaces" class="com.letscard.struts2.action.place.PlaceAction" method="showPlaces">
+            <result name="success">/WEB-INF/jsp/place/ShowPlaces.jsp</result>
+        </action>
+        <action name="removePlace" class="com.letscard.struts2.action.place.PlaceAction" method="removePlace">
+            <result name="success" type="chain">showPlaces</result>
+        </action>
+        <action name="removeAllPlaces" class="com.letscard.struts2.action.place.PlaceAction"
+                method="removeAllPlaces">
+            <result name="success" type="chain">showPlaces</result>
+        </action>
+    </package>
+</struts>

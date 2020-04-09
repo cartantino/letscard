@@ -1,0 +1,23 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+
+<validators>
+    <field name="activity.name">
+        <field-validator type="requiredstring">
+            <message>You must enter a name</message>
+        </field-validator>
+        <field-validator type="fieldexpression">
+            <param name="expression">
+                <![CDATA[
+                    @com.letscard.jpa.service.ServiceFactory@getInstance().getBusinessActivityService().readByNaturalId(activity.name) == null
+                ]]>
+            </param>
+            <message>Activity with %{place.name} name already exists</message>
+        </field-validator>
+    </field>
+    <field name="activity.type">
+        <field-validator type="requiredstring">
+            <message>You must enter a type</message>
+        </field-validator>
+    </field>
+</validators>

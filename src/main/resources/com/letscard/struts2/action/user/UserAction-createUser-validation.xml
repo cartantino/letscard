@@ -1,0 +1,49 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+
+<validators>
+    <field name="user.email">
+        <field-validator type="requiredstring">
+            <message>You must enter an email</message>
+        </field-validator>
+        <field-validator type="email">
+            <message>Must provide a valid email</message>
+        </field-validator>
+        <field-validator type="fieldexpression">
+            <param name="expression">
+                <![CDATA[
+                    @com.letscard.jpa.service.ServiceFactory@getInstance().getUserService().readByNaturalId(user.email) == null
+                ]]>
+            </param>
+            <message>User with %{user.email} email already exists</message>
+        </field-validator>
+    </field>
+    <field name="user.name">
+        <field-validator type="requiredstring">
+            <message>You must enter a name</message>
+        </field-validator>
+    </field>
+    <field name="user.surname">
+        <field-validator type="requiredstring">
+            <message>You must enter a surname</message>
+        </field-validator>
+    </field>
+    <field name="user.dateOfBirth">
+        <field-validator type="required">
+            <message>You must enter a date</message>
+        </field-validator>
+        <field-validator type="localdate">
+            <param name="min">1900-01-01</param>
+            <message>Date of birth must be between %{min} and %{max}</message>
+        </field-validator>
+    </field>
+    <field name="user.password">
+        <field-validator type="requiredstring">
+            <message>You must enter a password</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">5</param>
+            <message>Password must be 5 chars long</message>
+        </field-validator>
+    </field>
+</validators>

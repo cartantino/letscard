@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+        "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+
+<validators>
+    <field name="card.cardNumber">
+        <field-validator type="requiredstring">
+            <message>You must enter a name</message>
+        </field-validator>
+        <field-validator type="fieldexpression">
+            <param name="expression">
+                <![CDATA[
+                    @com.letscard.jpa.service.ServiceFactory@getInstance().getCardService().readByNaturalId(card.cardNumber) == null
+                ]]>
+            </param>
+            <message>Card with number %{card.cardNumber} already exists</message>
+        </field-validator>
+    </field>
+    <field name="card.quantity">
+        <field-validator type="required">
+            <message>You must enter a quantity</message>
+        </field-validator>
+        <field-validator type="int">
+            <param name="min">0</param>
+            <param name="max">100</param>
+            <message>Quantity must be between %{min} and %{max}</message>
+        </field-validator>
+    </field>
+</validators>
